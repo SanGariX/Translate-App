@@ -1,0 +1,28 @@
+.header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  background-color: var(--bg_header_footer);
+  padding: 15px 35px;
+  border-radius: 20px;
+  gap: 20px;
+}
+.header_title .title {
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  line-height: 80%;
+}
+.title_desc {
+  font-size: 24px;
+  font-family: "Dancing Script", sans-serif;
+}
+.button img {
+  width: 35px;
+}
+.btn_swipe {
+  margin-left: auto;
+}
+.title {
+  color: var(--text);
+}

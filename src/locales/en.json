@@ -1,0 +1,13 @@
+{
+  "change_arrow_lang": "Change language direction",
+  "docs": "How to use?",
+  "change_lang": "Change language",
+  "desc_howUseArea_structure": "Structure: ",
+  "desc_howUseArea_another": "a word from another language",
+  "desc_howUseArea_transcription": "transcription",
+  "desc_howUseArea_or": "or",
+  "desc_howUseArea_translated": "word translation",
+  "desc_howUseArea_finally": "word — word translation",
+  "desc_howUseArea_check": "Check",
+  "translate_placeholder_textarea": "Example: word - слово, ..."
+}

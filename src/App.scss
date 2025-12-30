@@ -1,0 +1,58 @@
+// Ubuntu
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,700,700italic);
+//Dancing Script
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script:regular,500,600,700);
+// Source Code Pro
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+* {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16px;
+}
+:root {
+  --text: white;
+  --bg: black;
+  --bg-btn: rgb(100, 100, 100, 0.5);
+  --bg_header_footer: rgba(57, 57, 57, 0.5);
+  --marker: rgb(255, 246, 66);
+}
+:root::after {
+  content: "";
+  display: block;
+  position: fixed;
+  inset: 0 0 0 0;
+  background-image: url(./assets/backgrounds/black.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 0;
+  z-index: -1;
+}
+[data-theme="white"] {
+  --text: black;
+  --bg: white;
+  --bg-btn: rgb(198, 198, 198, 0.8);
+  --bg_header_footer: rgba(160, 160, 160, 0.5);
+  --marker: rgb(241, 253, 80);
+  &::after {
+    background-image: url(./assets/backgrounds/white.jpg);
+  }
+}
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.wrapper {
+  height: 100%;
+}
+.btn {
+  width: fit-content;
+  padding: 8px 16px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  background-color: var(--bg-btn);
+}

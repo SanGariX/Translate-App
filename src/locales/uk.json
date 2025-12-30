@@ -1,0 +1,13 @@
+{
+  "change_arrow_lang": "Змінити напрямок мови",
+  "docs": "Як користуватися?",
+  "change_lang": "Змінити мову",
+  "desc_howUseArea_structure": "Структура: ",
+  "desc_howUseArea_another": "слово з іншої мови",
+  "desc_howUseArea_transcription": "транскрипція",
+  "desc_howUseArea_or": "або",
+  "desc_howUseArea_translated": "переклад слова",
+  "desc_howUseArea_finally": "слово — переклад слова",
+  "desc_howUseArea_check": "Перевірити",
+  "translate_placeholder_textarea": "Приклад: word - слово, ..."
+}

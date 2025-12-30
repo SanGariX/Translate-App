@@ -1,0 +1,27 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px;
+}
+.textarea {
+  max-width: 700px;
+  min-height: 300px;
+  width: 100%;
+  resize: none;
+  scrollbar-width: thin;
+}
+
+.text {
+  text-align: center;
+  line-height: 120%;
+  font-size: 20px;
+}
+.text span {
+  color: var(--marker);
+  line-height: 120%;
+  font-size: 20px;
+  font-weight: 600;
+}

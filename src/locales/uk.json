@@ -9,5 +9,8 @@
   "desc_howUseArea_translated": "переклад слова",
   "desc_howUseArea_finally": "слово — переклад слова",
   "desc_howUseArea_check": "Перевірити",
-  "translate_placeholder_textarea": "Приклад: word - слово, ..."
+  "translate_placeholder_textarea": "Приклад: word - слово, ...",
+  "title_tranlation_popup": "Введіть перевод слова:",
+  "show_answer": "Показати Відповідь",
+  "check_answer": "Перевірити відоповідь"
 }

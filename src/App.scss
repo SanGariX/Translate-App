@@ -11,6 +11,7 @@
 :root {
   --text: white;
   --bg: black;
+  --bg-popup: rgb(23, 27, 34, 0.6);
   --bg-btn: rgb(100, 100, 100, 0.5);
   --bg_header_footer: rgba(57, 57, 57, 0.5);
   --marker: rgb(255, 246, 66);
@@ -29,6 +30,7 @@
 [data-theme="white"] {
   --text: black;
   --bg: white;
+  --bg-popup: rgb(198, 204, 220, 0.6);
   --bg-btn: rgb(198, 198, 198, 0.8);
   --bg_header_footer: rgba(160, 160, 160, 0.5);
   --marker: rgb(241, 253, 80);
@@ -45,6 +47,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  position: relative;
 }
 .wrapper {
   height: 100%;
@@ -55,4 +58,6 @@
   border-radius: 10px;
   backdrop-filter: blur(10px);
   background-color: var(--bg-btn);
+  cursor: pointer;
+  user-select: none;
 }

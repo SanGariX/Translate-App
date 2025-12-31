@@ -9,5 +9,8 @@
   "desc_howUseArea_translated": "word translation",
   "desc_howUseArea_finally": "word — word translation",
   "desc_howUseArea_check": "Check",
-  "translate_placeholder_textarea": "Example: word - слово, ..."
+  "translate_placeholder_textarea": "Example: word - слово, ...",
+  "title_tranlation_popup": "Enter the translation of the word:",
+  "show_answer": "Show Answer",
+  "check_answer": "check the answer"
 }

@@ -7,6 +7,7 @@ import Main from "./components/Main/Main.tsx";
 import Footer from "./components/Footer/Footer.tsx";
 import { useSelector } from "react-redux";
 import type { RootState } from "./store/store.ts";
+import Popups from "./components/Popups/Popups.tsx";
 
 function App() {
   const { theme } = useSelector((state: RootState) => state.changeSlice);
@@ -21,6 +22,7 @@ function App() {
           <Main></Main>
           <Footer></Footer>
         </Container>
+        <Popups></Popups>
       </Suspense>
     </div>
   );

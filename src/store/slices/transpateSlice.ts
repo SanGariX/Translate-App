@@ -12,12 +12,14 @@ type initialStateType = {
   textArea: stringObjectData[];
   input: stringObjectData[];
   popup: boolean;
+  page: number;
 };
 const initialState: initialStateType = {
   textArea: [],
   input: [],
   popup: false,
   history: [],
+  page: 1,
 };
 const transpateSlice = createSlice({
   name: "transpateSlice",
@@ -35,8 +37,20 @@ const transpateSlice = createSlice({
       state.popup = false;
       state.textArea = [];
       state.input = [];
+      state.page = 1;
+    },
+    changeStatePopup: (state, action) => {
+      if (state.input.length) {
+        state.input[state.page - 1].finished = action.payload.accepte;
+      } else {
+        state.textArea[state.page - 1].finished = action.payload.accepte;
+      }
+    },
+    changePagePopup: (state) => {
+      state.page += 1;
     },
   },
 });
 export default transpateSlice.reducer;
-export const { writeWords, closePopup } = transpateSlice.actions;
+export const { writeWords, closePopup, changeStatePopup, changePagePopup } =
+  transpateSlice.actions;

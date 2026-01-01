@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { stringObjectData } from "../../helper/types.ts";
+import randomizer from "../../helper/randomizer.ts";
 type actionType = {
   payload: {
     array: stringObjectData[];
     textarea: boolean;
     input: boolean;
+    history?: boolean;
   };
 };
 type initialStateType = {
@@ -27,11 +29,11 @@ const transpateSlice = createSlice({
   reducers: {
     writeWords: (state, action: actionType) => {
       if (!action.payload.array) return;
-      state.history.push(...action.payload.array);
-      if (action.payload.textarea) state.textArea = action.payload.array;
-      else state.input = action.payload.array;
+      if (!action.payload.history) state.history.push(...action.payload.array);
+      if (action.payload.textarea)
+        state.textArea = randomizer(action.payload.array);
+      else state.input = randomizer(action.payload.array);
       state.popup = true;
-      console.log(action.payload, "поки ось так");
     },
     closePopup: (state) => {
       state.popup = false;

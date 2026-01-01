@@ -12,5 +12,7 @@
   "translate_placeholder_textarea": "Example: word - слово, ...",
   "title_tranlation_popup": "Enter the translation of the word:",
   "show_answer": "Show Answer",
-  "check_answer": "check the answer"
+  "check_answer": "check the answer",
+  "corect_answer": "Correct answer!",
+  "incorect_answer": "Incorrect answer"
 }

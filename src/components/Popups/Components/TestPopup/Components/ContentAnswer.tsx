@@ -14,6 +14,7 @@ type ContentAnswerType = {
   page: number;
   onSubmitResult: (data: dataType) => void;
   theme: string;
+  showResult: string;
 };
 const ContentAnswer = ({
   input,
@@ -22,6 +23,7 @@ const ContentAnswer = ({
   page,
   onSubmitResult,
   theme,
+  showResult,
 }: ContentAnswerType) => {
   const { t } = useTranslation();
   const { register, handleSubmit } = useForm<dataType>();
@@ -35,6 +37,7 @@ const ContentAnswer = ({
       </h3>
       <form className={s.form} onSubmit={handleSubmit(onSubmitResult)}>
         <input
+          value={showResult}
           className={`${s.input} btn`}
           type="text"
           {...register("text", { required: "This field is required" })}

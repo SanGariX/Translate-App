@@ -12,5 +12,7 @@
   "translate_placeholder_textarea": "Приклад: word - слово, ...",
   "title_tranlation_popup": "Введіть перевод слова:",
   "show_answer": "Показати Відповідь",
-  "check_answer": "Перевірити відоповідь"
+  "check_answer": "Перевірити відоповідь",
+  "corect_answer": "Правильна відповідь!",
+  "incorect_answer": "Не вірна відповідь"
 }

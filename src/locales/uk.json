@@ -3,10 +3,10 @@
   "docs": "Як користуватися?",
   "change_lang": "Змінити мову",
   "desc_howUseArea_structure": "Структура: ",
-  "desc_howUseArea_another": "слово з іншої мови",
-  "desc_howUseArea_transcription": "транскрипція",
+  "desc_howUseArea_another": "слово з іншої мови [якщо ви хочете, то можна добавити",
+  "desc_howUseArea_transcription": "транскрипцію",
   "desc_howUseArea_or": "або",
-  "desc_howUseArea_translated": "переклад слова",
+  "desc_howUseArea_translated": "переклад слова, і так далі писати через кому",
   "desc_howUseArea_finally": "слово — переклад слова",
   "desc_howUseArea_check": "Перевірити",
   "translate_placeholder_textarea": "Приклад: word - слово, ...",
@@ -14,5 +14,10 @@
   "show_answer": "Показати Відповідь",
   "check_answer": "Перевірити відоповідь",
   "corect_answer": "Правильна відповідь!",
-  "incorect_answer": "Не вірна відповідь"
+  "incorect_answer": "Не вірна відповідь",
+  "history_words": "Слова",
+  "desc_howUseArea_another_reverse": "переклад слова [якщо ви хочете, то можна добавити",
+  "desc_howUseArea_translated_reverse": "слово з іншої мови, і так далі писати через кому",
+  "swith_theme": "Змінити тему",
+  "history_translation": "Історія перекладів"
 }

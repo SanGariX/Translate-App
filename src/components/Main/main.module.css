@@ -20,3 +20,6 @@
   display: grid;
   grid-template-columns: 2fr 1fr;
 }
+.main_inner_btn_lang_active {
+  filter: invert(0.2);
+}

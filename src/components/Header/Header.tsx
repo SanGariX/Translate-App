@@ -6,8 +6,10 @@ import type { AppDispatch } from "../../store/store.tsx";
 import { changeTheme, changeValue } from "../../store/slices/changeSlice.ts";
 import useChangedValue from "../../helper/useСhangedValue.ts";
 import useChangedCss from "../../helper/useChangedCss.ts";
+import { useTranslation } from "react-i18next";
 const Header = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const { t } = useTranslation();
   return (
     <header className={s.header}>
       <h1 className={s.header_title}>
@@ -32,7 +34,7 @@ const Header = () => {
         }}
         className={`${s.btn_swipe} btn ${useChangedCss(s, "btn_swipe")}`}
       >
-        Змінити тему
+        {t("swith_theme")}
       </button>
     </header>
   );

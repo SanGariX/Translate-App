@@ -37,7 +37,7 @@ const ContentAnswer = ({
       </h3>
       <form className={s.form} onSubmit={handleSubmit(onSubmitResult)}>
         <input
-          value={showResult}
+          defaultValue={showResult}
           className={`${s.input} btn`}
           type="text"
           {...register("text", { required: "This field is required" })}

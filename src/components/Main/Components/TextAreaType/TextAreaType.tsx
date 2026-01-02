@@ -3,7 +3,9 @@ import s from "./TextAreaType.module.css";
 import { useForm } from "react-hook-form";
 import { writeWords } from "../../../../store/slices/transpateSlice.ts";
 import textAreaTransformFromString from "../../../../helper/textAreaTransformFromString.ts";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import type { RootState } from "../../../../store/store.ts";
+import translatePlaceholder from "../../../../helper/translatePlaceholder.ts";
 type dataType = {
   textarea: string;
 };
@@ -11,10 +13,13 @@ const TextAreaType = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const { register, handleSubmit } = useForm<dataType>();
+  const { directionTranslate } = useSelector(
+    (state: RootState) => state.transpateSlice
+  );
   const onSubmitForm = (data: dataType): void => {
     dispatch(
       writeWords({
-        array: textAreaTransformFromString(data.textarea),
+        array: textAreaTransformFromString(data.textarea, directionTranslate),
         textarea: true,
         input: false,
       })
@@ -24,19 +29,9 @@ const TextAreaType = () => {
     <form className={s.form} onSubmit={handleSubmit(onSubmitForm)}>
       <textarea
         className={`${s.textarea} btn`}
-        placeholder={t("translate_placeholder_textarea")}
+        placeholder={translatePlaceholder(t, directionTranslate)}
         {...register("textarea", { required: "This field is required" })}
       ></textarea>
-      <p className={s.text}>
-        {t("desc_howUseArea_structure")}
-        <span>{t("desc_howUseArea_another")}</span> [
-        <span>{t("desc_howUseArea_transcription")}</span>] - (—){" "}
-        <span>{t("desc_howUseArea_translated")}</span>, ...
-        <br />
-        {t("desc_howUseArea_or")}
-        <br />
-        {t("desc_howUseArea_finally")}, ...
-      </p>
       <button className={`${s.btn_check} btn`}>
         {t("desc_howUseArea_check")}
       </button>

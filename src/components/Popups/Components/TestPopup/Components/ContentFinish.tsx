@@ -5,6 +5,8 @@ import micr_white from "../../../../../assets/micr/white.png";
 import micr_black from "../../../../../assets/micr/black.png";
 import type { stringObjectData } from "../../../../../helper/types.ts";
 import takeCorrectArray from "../../../../../helper/takeCorrectArray.ts";
+import { useSelector } from "react-redux";
+import type { RootState } from "../../../../../store/store.ts";
 type ContentFinishType = {
   input: stringObjectData[];
   textArea: stringObjectData[];
@@ -22,14 +24,19 @@ const ContentFinish = ({
   page,
 }: ContentFinishType) => {
   const { t } = useTranslation();
+  const { directionTranslate } = useSelector(
+    (state: RootState) => state.transpateSlice
+  );
   const answer = (): stringObjectData => {
     return takeCorrectArray(input, textArea, page);
   };
+
   const correct = () => {
-    return `${answer().translate}[${answer().transcription ?? ""}] — ${
-      answer().transpated
-    }`;
+    return `${answer().translate}${
+      answer().transcription ? `${answer().transcription}` : ""
+    } — ${answer().transpated}`;
   };
+
   return (
     <div className={s.content_answer}>
       {answer().finished ? (
@@ -43,7 +50,9 @@ const ContentFinish = ({
           className={s.answer_micr_btn}
           onClick={() => {
             speechSynthesis.speak(
-              new SpeechSynthesisUtterance(answer().translate)
+              new SpeechSynthesisUtterance(
+                directionTranslate ? answer().transpated : answer().translate
+              )
             );
           }}
         >

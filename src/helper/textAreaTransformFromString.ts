@@ -1,5 +1,8 @@
 import type { stringObjectData } from "./types.ts";
-const textAreaTransformFromString = (data: string): stringObjectData[] => {
+const textAreaTransformFromString = (
+  data: string,
+  reverseWords?: boolean
+): stringObjectData[] => {
   const resultFn: stringObjectData[] = [];
   const regex1 = /[-]/;
   const regex2 = /[–]/;
@@ -24,9 +27,10 @@ const textAreaTransformFromString = (data: string): stringObjectData[] => {
 
       const itemForResult = item.replace(regexTranscription, "");
       const dataForEach = itemForResult.split(finallyTest);
-
+      if (reverseWords) dataForEach.reverse();
       const match = item.match(regexTranscription);
       if (match && match[1].trim()) {
+        console.log(match);
         dataForEach.push(match[1]);
         resultFn.push({
           translate: dataForEach[0].trim(),
@@ -42,7 +46,6 @@ const textAreaTransformFromString = (data: string): stringObjectData[] => {
         finished: false,
       });
     });
-
   return resultFn;
 };
 export default textAreaTransformFromString;

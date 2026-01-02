@@ -3,10 +3,10 @@
   "docs": "How to use?",
   "change_lang": "Change language",
   "desc_howUseArea_structure": "Structure: ",
-  "desc_howUseArea_another": "a word from another language",
+  "desc_howUseArea_another": "a word from another language [if you want, you can add it",
   "desc_howUseArea_transcription": "transcription",
   "desc_howUseArea_or": "or",
-  "desc_howUseArea_translated": "word translation",
+  "desc_howUseArea_translated": "translation of the word, and so on, write after a comma",
   "desc_howUseArea_finally": "word — word translation",
   "desc_howUseArea_check": "Check",
   "translate_placeholder_textarea": "Example: word - слово, ...",
@@ -14,5 +14,10 @@
   "show_answer": "Show Answer",
   "check_answer": "check the answer",
   "corect_answer": "Correct answer!",
-  "incorect_answer": "Incorrect answer"
+  "incorect_answer": "Incorrect answer",
+  "history_words": "Words",
+  "desc_howUseArea_another_reverse": "a word from another language, and so on, write after a comma",
+  "desc_howUseArea_translated_reverse": "translation of the word [if you want, you can add it",
+  "swith_theme": "Change theme",
+  "history_translation": "Translation history"
 }

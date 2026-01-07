@@ -14,8 +14,7 @@ const History = () => {
     dispatch(
       writeWords({
         array: JSON.parse(items),
-        textarea: true,
-        input: false,
+
         history: true,
       })
     );

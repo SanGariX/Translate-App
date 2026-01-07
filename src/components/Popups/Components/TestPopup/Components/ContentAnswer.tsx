@@ -8,7 +8,6 @@ type dataType = {
 };
 
 type ContentAnswerType = {
-  input: stringObjectData[];
   textArea: stringObjectData[];
   s: Record<string, string>;
   page: number;
@@ -17,7 +16,6 @@ type ContentAnswerType = {
   showResult: string;
 };
 const ContentAnswer = ({
-  input,
   textArea,
   s,
   page,
@@ -30,11 +28,7 @@ const ContentAnswer = ({
   return (
     <>
       <h3 className={s.title}>{t("title_tranlation_popup")}</h3>
-      <h3 className={s.translate}>
-        {input.length
-          ? input[page - 1].translate
-          : textArea[page - 1].translate}
-      </h3>
+      <h3 className={s.translate}>{textArea[page - 1].translate}</h3>
       <form className={s.form} onSubmit={handleSubmit(onSubmitResult)}>
         <input
           defaultValue={showResult}

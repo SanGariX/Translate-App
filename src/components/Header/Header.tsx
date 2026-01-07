@@ -1,10 +1,7 @@
 import s from "./header.module.scss";
-import imgWhite from "../../assets/swap/white.png";
-import imgBlack from "../../assets/swap/black.png";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "../../store/store.tsx";
-import { changeTheme, changeValue } from "../../store/slices/changeSlice.ts";
-import useChangedValue from "../../helper/useСhangedValue.ts";
+import { changeTheme } from "../../store/slices/changeSlice.ts";
 import useChangedCss from "../../helper/useChangedCss.ts";
 import { useTranslation } from "react-i18next";
 const Header = () => {
@@ -17,17 +14,6 @@ const Header = () => {
           Foculus <span className={s.title_desc}>your english words</span>
         </a>
       </h1>
-      <button
-        onClick={() => {
-          dispatch(changeValue());
-        }}
-        className={s.button}
-      >
-        <img
-          src={useChangedValue(imgBlack, imgWhite)}
-          alt="button swap content"
-        />
-      </button>
       <button
         onClick={() => {
           dispatch(changeTheme());

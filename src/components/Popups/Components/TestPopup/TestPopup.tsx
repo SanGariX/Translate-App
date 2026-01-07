@@ -10,10 +10,9 @@ import {
 } from "../../../../store/slices/transpateSlice.ts";
 import type { RootState } from "../../../../store/store.ts";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ContentAnswer from "./Components/ContentAnswer.tsx";
 import ContentFinish from "./Components/ContentFinish.tsx";
-import takeCorrectArray from "../../../../helper/takeCorrectArray.ts";
 type dataType = {
   text: string;
 };
@@ -23,41 +22,45 @@ const TestPopup = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const { theme } = useSelector((state: RootState) => state.changeSlice);
-  const { page, input, textArea } = useSelector(
+  const { page, textArea } = useSelector(
     (state: RootState) => state.transpateSlice
   );
+  useEffect(() => {
+    const answer = localStorage.getItem("answer");
+    if (answer === null) return;
+    setAnswer(JSON.parse(answer));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const onSubmitResult = ({ text }: dataType): void => {
     const data = text.trim().replace(/^\s+|\s+$/g, "");
-    const succes: boolean =
-      data === takeCorrectArray(input, textArea, page).transpated;
+    const succes: boolean = data === textArea[page - 1].transpated;
     dispatch(
       changeStatePopup({
         accepte: succes,
       })
     );
     setAnswer(true);
+    localStorage.setItem("answer", "true");
     setShowResult("");
   };
   const onSumbitChangePage = () => {
-    if (
-      (input.length && page === input.length) ||
-      (textArea.length && page === textArea.length)
-    ) {
+    if (textArea.length && page === textArea.length) {
       dispatch(closePopup());
     }
     dispatch(changePagePopup());
     setAnswer(false);
+    localStorage.setItem("answer", "false");
   };
   const handleShowAnswer = () => {
-    setShowResult(takeCorrectArray(input, textArea, page).transpated);
+    setShowResult(textArea[page - 1].transpated);
   };
   return (
     <div className={s.content_wrapper}>
       <div className={s.content}>
         <div className={s.content_inner}>
           <p className={s.nav}>
-            {page} із {input.length || textArea.length}
+            {page} із {textArea.length}
           </p>
           <button
             onClick={() => {
@@ -78,7 +81,6 @@ const TestPopup = () => {
         </div>
         {!answer && (
           <ContentAnswer
-            input={input}
             textArea={textArea}
             s={s}
             page={page}
@@ -89,7 +91,6 @@ const TestPopup = () => {
         )}
         {answer && (
           <ContentFinish
-            input={input}
             textArea={textArea}
             s={s}
             page={page}

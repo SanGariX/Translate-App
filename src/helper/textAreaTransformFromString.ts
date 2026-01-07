@@ -30,7 +30,6 @@ const textAreaTransformFromString = (
       if (reverseWords) dataForEach.reverse();
       const match = item.match(regexTranscription);
       if (match && match[1].trim()) {
-        console.log(match);
         dataForEach.push(match[1]);
         resultFn.push({
           translate: dataForEach[0].trim(),

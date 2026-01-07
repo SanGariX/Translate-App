@@ -1,11 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 type initialStateType = {
   theme: "white" | "dark";
-  form: boolean;
 };
 const initialState: initialStateType = {
-  theme: "white",
-  form: false,
+  theme: "dark",
 };
 const changeSlice = createSlice({
   name: "changeSlice",
@@ -20,11 +18,9 @@ const changeSlice = createSlice({
           state.theme = "dark";
           break;
       }
-    },
-    changeValue: (state) => {
-      state.form = !state.form;
+      localStorage.setItem("theme", JSON.stringify(state.theme));
     },
   },
 });
 export default changeSlice.reducer;
-export const { changeTheme, changeValue } = changeSlice.actions;
+export const { changeTheme } = changeSlice.actions;

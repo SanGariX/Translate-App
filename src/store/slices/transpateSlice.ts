@@ -4,22 +4,18 @@ import randomizer from "../../helper/randomizer.ts";
 type actionType = {
   payload: {
     array: stringObjectData[];
-    textarea: boolean;
-    input: boolean;
     history?: boolean;
   };
 };
 type initialStateType = {
   history: stringObjectData[][];
   textArea: stringObjectData[];
-  input: stringObjectData[];
   popup: boolean;
   page: number;
   directionTranslate: boolean;
 };
 const initialState: initialStateType = {
   textArea: [],
-  input: [],
   popup: false,
   history: [],
   page: 1,
@@ -33,32 +29,63 @@ const transpateSlice = createSlice({
       if (!action.payload.array.length) return;
       if (!action.payload.history)
         state.history.push([...action.payload.array]);
-      if (action.payload.textarea)
-        state.textArea = randomizer(action.payload.array);
-      else state.input = randomizer(action.payload.array);
+      state.textArea = randomizer(action.payload.array);
       state.popup = true;
+      console.dir(this);
+      localStorageTranslate(state);
     },
     closePopup: (state) => {
       state.popup = false;
       state.textArea = [];
-      state.input = [];
       state.page = 1;
+      localStorageTranslate(state);
     },
     changeStatePopup: (state, action) => {
-      if (state.input.length) {
-        state.input[state.page - 1].finished = action.payload.accepte;
-      } else {
-        state.textArea[state.page - 1].finished = action.payload.accepte;
-      }
+      state.textArea[state.page - 1].finished = action.payload.accepte;
+      localStorageTranslate(state);
     },
     changePagePopup: (state) => {
       state.page += 1;
+      localStorageTranslate(state);
     },
     changeDirectionTranslate: (state) => {
       state.directionTranslate = !state.directionTranslate;
+      localStorageTranslate(state);
+    },
+    recoverLocalStorage: (state) => {
+      const history = localStorage.getItem("history");
+      const page = localStorage.getItem("page");
+      const textArea = localStorage.getItem("textArea");
+      const popup = localStorage.getItem("popup");
+      const directionTranslate = localStorage.getItem("directionTranslate");
+      if (
+        !history ||
+        !page ||
+        !textArea ||
+        !textArea ||
+        !popup ||
+        !directionTranslate
+      )
+        return;
+      state.history = JSON.parse(history);
+      state.page = JSON.parse(page);
+      state.textArea = JSON.parse(textArea);
+      state.popup = JSON.parse(popup);
+      state.directionTranslate = JSON.parse(directionTranslate);
     },
   },
 });
+
+function localStorageTranslate(state: initialStateType) {
+  localStorage.setItem("history", JSON.stringify(state.history));
+  localStorage.setItem("page", JSON.stringify(state.page));
+  localStorage.setItem("textArea", JSON.stringify(state.textArea));
+  localStorage.setItem("popup", JSON.stringify(state.popup));
+  localStorage.setItem(
+    "directionTranslate",
+    JSON.stringify(state.directionTranslate)
+  );
+}
 export default transpateSlice.reducer;
 export const {
   writeWords,
@@ -66,4 +93,5 @@ export const {
   changeStatePopup,
   changePagePopup,
   changeDirectionTranslate,
+  recoverLocalStorage,
 } = transpateSlice.actions;

@@ -4,11 +4,9 @@ import right_black from "../../../../../assets/right/black.png";
 import micr_white from "../../../../../assets/micr/white.png";
 import micr_black from "../../../../../assets/micr/black.png";
 import type { stringObjectData } from "../../../../../helper/types.ts";
-import takeCorrectArray from "../../../../../helper/takeCorrectArray.ts";
 import { useSelector } from "react-redux";
 import type { RootState } from "../../../../../store/store.ts";
 type ContentFinishType = {
-  input: stringObjectData[];
   textArea: stringObjectData[];
   s: Record<string, string>;
   page: number;
@@ -19,7 +17,6 @@ const ContentFinish = ({
   s,
   onSumbitChangePage,
   theme,
-  input,
   textArea,
   page,
 }: ContentFinishType) => {
@@ -28,12 +25,12 @@ const ContentFinish = ({
     (state: RootState) => state.transpateSlice
   );
   const answer = (): stringObjectData => {
-    return takeCorrectArray(input, textArea, page);
+    return textArea[page - 1];
   };
 
   const correct = () => {
     return `${answer().translate}${
-      answer().transcription ? `${answer().transcription}` : ""
+      answer().transcription ? `[${answer().transcription}]` : ""
     } — ${answer().transpated}`;
   };
 

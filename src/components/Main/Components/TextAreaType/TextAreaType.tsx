@@ -20,8 +20,6 @@ const TextAreaType = () => {
     dispatch(
       writeWords({
         array: textAreaTransformFromString(data.textarea, directionTranslate),
-        textarea: true,
-        input: false,
       })
     );
   };

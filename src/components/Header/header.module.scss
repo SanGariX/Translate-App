@@ -1,6 +1,6 @@
 .header {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   background-color: var(--bg_header_footer);
   padding: 15px 35px;
